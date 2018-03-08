@@ -179,7 +179,7 @@ class TDDropListView: UIView {
         let markViewH = (screenHeight - kNaviHeight - self.cellHeight) * 0.8
         let tableViewH = count * self.cellHeight > markViewH ? markViewH : count * self.cellHeight
         UIView.animate(withDuration: self.duration, animations: {
-            self.tableView.frame = CGRect.init(x: 0.0, y: self.cellHeight, width: screenWidth, height: tableViewH)
+            self.tableView.frame = CGRect.init(x: 0.0, y: self.bounds.size.height, width: screenWidth, height: tableViewH)
         })
     }
     

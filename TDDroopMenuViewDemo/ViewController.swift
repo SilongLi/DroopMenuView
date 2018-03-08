@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         let listModel4: DropListModel = DropListModel.init(titleModel: titleModel4, list: sortArray, selectedIcon: #imageLiteral(resourceName: "selected"))
         let models = [listModel1, listModel2, listModel3, listModel4]
         
-        let frame = CGRect.init(x: 0, y: kNaviHeight, width: screenWidth, height: 50)
+        let frame = CGRect.init(x: 0, y: kNaviHeight, width: screenWidth, height: 40)
         let dropList = TDDropListView.init(frame: frame, models: models) { [weak self] (model, models) in
             var str = "  "
             for model in models {
