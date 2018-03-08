@@ -52,7 +52,7 @@ class TDDropListView: UIView {
     private var selectClosure: SelectClosure?
     var models: [DropListModel] = [DropListModel]()
     var didSelectedModel: DropListModel?
-    
+    var cellHeight: CGFloat = 40.0
     
     // MARK: - init
     
@@ -176,10 +176,10 @@ class TDDropListView: UIView {
             self.bgMaskView?.alpha = 1
         })
         let count: CGFloat = CGFloat(selectedModel.list?.count ?? 0)
-        let height: CGFloat = self.frame.size.height
-        let tableViewH = (count * height + 20.0) > screenHeight - kNaviHeight - height ?screenHeight - kNaviHeight - height: count * height
+        let markViewH = (screenHeight - kNaviHeight - self.cellHeight) * 0.8
+        let tableViewH = count * self.cellHeight > markViewH ? markViewH : count * self.cellHeight
         UIView.animate(withDuration: self.duration, animations: {
-            self.tableView.frame = CGRect.init(x: 0.0, y: height, width: screenWidth, height: tableViewH)
+            self.tableView.frame = CGRect.init(x: 0.0, y: self.cellHeight, width: screenWidth, height: tableViewH)
         })
     }
     
@@ -324,6 +324,10 @@ extension TDDropListView: UITableViewDelegate, UITableViewDataSource {
         }
         titleView.isSelected = false
         self.cancelSelectedStatus()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.cellHeight
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

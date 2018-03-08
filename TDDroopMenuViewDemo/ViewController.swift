@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         view.addSubview(self.infoLabel)
         self.infoLabel.frame = CGRect.init(x: 0, y: self.view.center.y, width: self.view.frame.size.width, height: 40)
         self.infoLabel.center.x = self.view.center.x
-        
         self.setupDropListView()
     }
     
@@ -67,6 +66,7 @@ class ViewController: UIViewController {
                 strongSelf.infoLabel.text = str
             }
         }
+        dropList.cellHeight = 40.0
         view.addSubview(dropList)
     }
     
