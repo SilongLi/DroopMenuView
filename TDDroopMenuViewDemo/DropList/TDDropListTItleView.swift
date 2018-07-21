@@ -188,8 +188,8 @@ class TDDropListTitleView: UIView {
     func getLabWidth(labelStr: String, font: UIFont, width: CGFloat, height: CGFloat) -> CGFloat {
         let statusLabelText: NSString = labelStr as NSString
         let size = CGSize(width: width, height: height)
-        let dic = NSDictionary(object: font, forKey: NSAttributedStringKey.font as NSCopying)
-        let strSize = statusLabelText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [NSAttributedStringKey : AnyObject], context: nil).size
+        let dic = NSDictionary(object: font, forKey: NSAttributedString.Key.font as NSCopying)
+        let strSize = statusLabelText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [NSAttributedString.Key : AnyObject], context: nil).size
         return strSize.width
     }
 }
